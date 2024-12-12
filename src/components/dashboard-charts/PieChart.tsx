@@ -14,7 +14,7 @@ const PieChartComponent = ({ data }: { data: DataPoint[] }) => (
             label
         >
             {data.map((_, index) => (
-                <Cell key={`cell-${index}`} fill={["#8884d8", "#82ca9d", "#ffc658"][index % 3]} />
+                <Cell key={`cell-${index}`} fill={["#8884d8", "#82ca9d", "#ECC94B", "#E53E3E", "#3182CE"][index % 5]} />
             ))}
         </Pie>
         <Tooltip />

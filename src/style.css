@@ -518,6 +518,15 @@ label:hover {
   width: 100%;
 }
 
+.cl-avatarBox {
+  width: 36px;
+  height: 36px;
+}
+
+.cl-internal-1grbo8b {
+  z-index: 999999;
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

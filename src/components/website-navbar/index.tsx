@@ -1,6 +1,6 @@
 import "./Navbar.style.css";
 import { useLocation } from "react-router-dom";
-import LogoImg from '../../assets/logo.svg'
+import LogoImg from '../../assets/logo.png'
 import { useEffect, useState } from "react";
 import { SoArrowDown, SoSquareArrowUpRight, SoXmarkCircle } from "solom-icon";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
