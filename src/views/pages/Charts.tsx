@@ -4,6 +4,8 @@ import {
     LineChart, Line, PieChart, Pie, Cell,
 } from 'recharts';
 import Input from '../../components/schema/Input';
+import { Dropdown } from 'primereact/dropdown';
+import { useUser } from '@clerk/clerk-react';
 
 type DataPoint = {
     key: string;
@@ -61,8 +63,7 @@ export default function ChartSelector() {
     const handleUpdateInput = (index: number, field: 'key' | 'value', value: string) => {
         const updatedInputs = [...dataInputs];
         if (field === 'value') {
-            updatedInputs[index].value = isNaN(Number(value)) ? value : Number(value); // تحويل القيمة إلى number إذا كانت قابلة لذلك
-        } else {
+            updatedInputs[index].value = isNaN(Number(value)) ? value : Number(value);
             updatedInputs[index].key = value;
         }
         setDataInputs(updatedInputs);
@@ -74,21 +75,31 @@ export default function ChartSelector() {
         }
     };
 
+    const chartOptions = [
+        { label: 'Bar Chart', value: 'bar', icon: '/path-to-bar-icon.png' },
+        { label: 'Line Chart', value: 'line', icon: '/path-to-line-icon.png' },
+        { label: 'Pie Chart', value: 'pie', icon: '/path-to-pie-icon.png' },
+    ];
+
+    const user = useUser();
+    console.log(user.user?.username);
     return (
         <div className="mt-40 container w-[85%]">
-            <h2>اختر نوع الـ Chart:</h2>
-            <select value={selectedChart} onChange={(e) => setSelectedChart(e.target.value)}>
-                <option value="">اختر نوع</option>
-                <option value="bar">Bar Chart</option>
-                <option value="line">Line Chart</option>
-                <option value="pie">Pie Chart</option>
-            </select>
-
+            <h3 className="text-2xl">Welcome, <span className='font-medium text-primary'>{user.user?.username}</span></h3>
+            <div className="flex items-center justify-center mb-5">
+            <Dropdown
+                value={selectedChart}
+                onChange={(e) => setSelectedChart(e.value)}
+                options={chartOptions}
+                placeholder="Select Chart"
+                optionLabel="label"
+                className="w-72 border border-solid border-primary py-2 px-4 rounded-md"
+                />
+            </div>
             {selectedChart && (
                 <div>
-                    <h3>أدخل البيانات</h3>
                     {dataInputs.map((input, index) => (
-                        <div key={index} className="flex items-center gap-5 mb-2">
+                        <div key={index} className="flex items-center gap-5 my-2">
                             <Input
                                 type="text"
                                 placeholder="Label"
@@ -109,7 +120,7 @@ export default function ChartSelector() {
             )}
 
             {dataInputs.length > 0 && (
-                <div className='flex items-center justify-center'>
+                <div className='flex items-center justify-center mt-20'>
                     {selectedChart === 'bar' && <BarChartComponent data={dataInputs} />}
                     {selectedChart === 'line' && <LineChartComponent data={dataInputs} />}
                     {selectedChart === 'pie' && <PieChartComponent data={dataInputs} />}

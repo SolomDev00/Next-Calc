@@ -137,11 +137,11 @@ const Navbar = () => {
               </SignedOut>
             <SignedIn>
               <UserButton
-                appearance={{
-                  variables: {
-                    colorBackground: "#000"
-                  }
-                }}
+                // appearance={{
+                //   variables: {
+                //     colorBackground: "#000"
+                //   }
+                // }}
                 userProfileMode="modal"
               />
             </SignedIn>
