@@ -31,10 +31,7 @@ const LandingSection = () => {
                 <Button className='px-6 border-2 border-primary bg-transparent dark:text-primary hover:text-white hover:bg-primary font-medium'>Prices Plans</Button>
               </ScrollLink>
             </div>
-          </div>
-          <div className='flex-shrink-0 w-3/5 max-sm:mt-10 max-sm:w-full'>
-            {/* <img className="image-float duration-300" src={LandingImg} alt="Landing" loading='lazy' /> */}
-          </div>
+          </div>         
         </div>
       </div>
     </section>

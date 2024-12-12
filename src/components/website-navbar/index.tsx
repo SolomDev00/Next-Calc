@@ -114,7 +114,7 @@ const Navbar = () => {
           animation: `${window.scrollY > 50 ? "fadeUpNav 0.4s ease-out" : ""}`,
         }}
       >
-        <div className="menu__bar">
+        <div className="navbar">
           <ScrollLink
             onClick={() => scroll.scrollToTop()}
             to="/"
@@ -128,108 +128,7 @@ const Navbar = () => {
               alt="logo"
             />
           </ScrollLink>
-          <nav>
-            <ul className={`navigation hide`}>
-              <li>
-                <ScrollLink
-                  className="nav-link"
-                  activeClass="active"
-                  to="landing"
-                  spy={true}
-                  smooth={true}
-                  offset={-70}
-                  duration={500}
-                  onClick={handleNavLinkClick}
-                >
-                  Main
-                </ScrollLink>
-              </li>
-              <li>
-                <ScrollLink
-                  className="nav-link"
-                  activeClass="active"
-                  to="about"
-                  spy={true}
-                  smooth={true}
-                  offset={-70}
-                  duration={500}
-                  onClick={handleNavLinkClick}
-                >
-                  About Us
-                </ScrollLink>
-              </li>
-              <li>
-                <ScrollLink
-                  className="nav-link"
-                  activeClass="active"
-                  to="services"
-                  spy={true}
-                  smooth={true}
-                  offset={-70}
-                  duration={500}
-                  onClick={handleNavLinkClick}
-                >
-                  Our Services
-                </ScrollLink>
-              </li>
-              <li>
-                <ScrollLink
-                  className="nav-link"
-                  activeClass="active"
-                  to="whatsapp"
-                  spy={true}
-                  smooth={true}
-                  offset={-70}
-                  duration={500}
-                  onClick={handleNavLinkClick}
-                >
-                  Whatsapp Services
-                </ScrollLink>
-              </li>
-              <li>
-                <ScrollLink
-                  className="nav-link"
-                  activeClass="active"
-                  to="resellers"
-                  spy={true}
-                  smooth={true}
-                  offset={-70}
-                  duration={500}
-                  onClick={handleNavLinkClick}
-                >
-                  Resellers
-                </ScrollLink>
-              </li>
-              <li>
-                <ScrollLink
-                  className="nav-link"
-                  activeClass="active"
-                  to="prices"
-                  spy={true}
-                  smooth={true}
-                  offset={-70}
-                  duration={500}
-                  onClick={handleNavLinkClick}
-                >
-                  Prices
-                </ScrollLink>
-              </li>
-              <li>
-                <ScrollLink
-                  className="nav-link"
-                  activeClass="active"
-                  to="contact"
-                  spy={true}
-                  smooth={true}
-                  offset={-70}
-                  duration={500}
-                  onClick={handleNavLinkClick}
-                >
-                  Contact Us
-                </ScrollLink>
-              </li>
-            </ul>
-            <div>
+          <div>
               <SignedOut>
                 <SignInButton />
               </SignedOut>
@@ -237,7 +136,6 @@ const Navbar = () => {
                 <UserButton />
               </SignedIn>
             </div>
-          </nav>
         </div>      
         <button
           aria-label="Toggle menu"
