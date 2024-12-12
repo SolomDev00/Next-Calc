@@ -2,9 +2,10 @@ import "./Navbar.style.css";
 import { useLocation } from "react-router-dom";
 import LogoImg from '../../assets/logo.svg'
 import { useEffect, useState } from "react";
-import { SoArrowDown, SoXmarkCircle } from "solom-icon";
+import { SoArrowDown, SoSquareArrowUpRight, SoXmarkCircle } from "solom-icon";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
+import Button from "../schema/Button";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);
@@ -130,11 +131,20 @@ const Navbar = () => {
           </ScrollLink>
           <div>
               <SignedOut>
-                <SignInButton />
+              <SignInButton>
+                <Button className="py-2 px-8 flex items-center gap-2">Login <SoSquareArrowUpRight className="w-5 h-5"/></Button>
+              </SignInButton>
               </SignedOut>
-              <SignedIn>
-                <UserButton />
-              </SignedIn>
+            <SignedIn>
+              <UserButton
+                appearance={{
+                  variables: {
+                    colorBackground: "#000"
+                  }
+                }}
+                userProfileMode="modal"
+              />
+            </SignedIn>
             </div>
         </div>      
         <button
