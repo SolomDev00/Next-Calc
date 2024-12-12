@@ -7,7 +7,7 @@ const LineChartComponent = ({ data }: { data: DataPoint[] }) => (
         <XAxis dataKey="key" />
         <YAxis />
         <Tooltip />
-        <Line type="monotone" dataKey="value" stroke="#8884d8" />
+        <Line type="monotone" dataKey="value" stroke="#a364ff" />
     </LineChart>
 );
 

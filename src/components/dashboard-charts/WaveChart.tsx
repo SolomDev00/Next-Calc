@@ -49,7 +49,7 @@ const WaveChart: React.FC<WaveChartProps> = ({ data = [] }) => {
             const failed = payload.find((p) => p.name === 'failed');
 
             return (
-                <div style={{ width: "150px", backgroundColor: '#007373', borderRadius: "12px", textAlign: "center", color: "white", padding: '10px' }}>
+                <div style={{ width: "150px", backgroundColor: '#6c35de', borderRadius: "12px", textAlign: "center", color: "white", padding: '10px' }}>
                     <p style={{ color: '#ffffff', fontSize: 18, fontWeight: 500 }}>{label}</p>
                     <p style={{ color: '#28A745', fontSize: 16 }}>Success: {success ? success.value : '-'}</p>
                     <p style={{ color: '#FFC107', fontSize: 16 }}>Pending: {pending ? pending.value : '-'}</p>

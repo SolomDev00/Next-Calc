@@ -9,7 +9,7 @@
 }
 
 :root {
-  --primary: #007373;
+  --primary: #6c35de;
   --accent: #a4e1d2;
   --secondary: #2e2e2e;
   --shadow-color: #e9e6e4;
@@ -22,6 +22,7 @@ html {
 }
 
 body {
+  background-color: #241b35;
   overflow-x: hidden;
 }
 
@@ -470,7 +471,7 @@ li.p-dropdown-item {
 }
 
 .p-dropdown-label.p-inputtext {
-  color: #999;
+  color: white;
 }
 
 input[type="file"] {

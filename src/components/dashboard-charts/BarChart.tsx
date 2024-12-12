@@ -7,7 +7,7 @@ const BarChartComponent = ({ data }: { data: DataPoint[] }) => (
         <XAxis dataKey="key" />
         <YAxis />
         <Tooltip />
-        <Bar dataKey="value" fill="#8884d8" />
+        <Bar dataKey="value" fill="#a364ff" />
     </BarChart>
 );
 

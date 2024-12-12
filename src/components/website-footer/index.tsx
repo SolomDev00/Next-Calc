@@ -8,7 +8,7 @@ import { SoFacebook, SoInstagram, SoLinkedIn, SoLocation2, SoMail, SoTwitter, So
 
 const Footer = () => {
   return (
-    <footer className="bg-[#007373] pb-5 relative overflow-hidden hidden">
+    <footer className="bg-[#6c35de] pb-5 relative overflow-hidden hidden">
       {/* <div className="w-full h-auto absolute flex flex-col items-center z-10">
         <img className="w-full" src={Waves} alt="WAVES" loading='lazy' />
         <img className="w-full min-sm:hidden" src={Waves} alt="WAVES" loading='lazy' />

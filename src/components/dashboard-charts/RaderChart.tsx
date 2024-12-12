@@ -23,7 +23,7 @@ const RaderChart: React.FC<RaderChartProps> = ({ successSMS, scheduleSMS, pendin
                     <PolarGrid />
                     <PolarAngleAxis dataKey="subject" />
                     <PolarRadiusAxis angle={30} />
-                    <Radar name="Status" dataKey="A" stroke="#007373" fill="#A4E1D2" fillOpacity={0.8} />
+                    <Radar name="Status" dataKey="A" stroke="#6c35de" fill="#A4E1D2" fillOpacity={0.8} />
                 </RadarChart>
             </ResponsiveContainer>
         </div>
