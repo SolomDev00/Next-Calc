@@ -11,6 +11,7 @@ import RootLayout from "../views/Layout";
 import NotFoundPage from "../views/errors/404-NotFound";
 import SignInPage from "../views/auth/Login";
 import SignUpPage from "../views/auth/Register";
+import ChartSelector from "../views/pages/Charts";
 
 const routers = createHashRouter(
   createRoutesFromElements(
@@ -18,6 +19,7 @@ const routers = createHashRouter(
       {/* Root Layout */}
       <Route path="/" element={<RootLayout />} errorElement={<ErrorHandler />}>
         <Route index element={<HomePage />} />
+        <Route path="/charts" element={<ChartSelector />} />
         <Route path="/sign-in" element={<SignInPage />} />
         <Route path="/sign-up" element={<SignUpPage />} />
       </Route>
