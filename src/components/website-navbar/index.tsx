@@ -93,7 +93,7 @@ const Navbar = () => {
 
   return (
     <header
-      className={`header ${scrolling ? "bg-white" : "bg-primary"
+      className={`header ${scrolling ? "bg-transparent" : "bg-primary"
         } duration-200 ${scrolling ? "bg-transparent" : "bg-primary"} ${showMenu ? "menu-open" : ""
         }`}
       style={{

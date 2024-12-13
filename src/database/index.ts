@@ -1,25 +1,40 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { openDB } from 'idb';
+import { Chart } from '../interfaces';
+import { IDBPDatabase, openDB } from 'idb';
 
-const dbPromise = openDB('chartsDB', 1, {
-    upgrade(db: any) {
-        if (!db.objectStoreNames.contains('charts')) {
-            db.createObjectStore('charts', { keyPath: 'id', autoIncrement: true });
-        }
-    },
-});
-
-export async function saveChart(chartData: any) {
-    const db = await dbPromise;
-    await db.add('charts', { ...chartData, createdAt: new Date().toISOString() });
+interface ChartsObjectStore {
+  id: string;
+  userId: string;
+  createdAt: string; 
+  data: Chart;
+}
+interface ChartsDBSchema {
+  charts: ChartsObjectStore;
 }
 
-export async function getCharts() {
-    const db = await dbPromise;
-    return await db.getAll('charts');
+const dbPromise: Promise<IDBPDatabase<ChartsDBSchema>> = openDB("chartsDB", 1, {
+  upgrade(db) {
+    if (!db.objectStoreNames.contains("charts")) {
+      db.createObjectStore("charts", { keyPath: "id", autoIncrement: true });
+    }
+  },
+});
+
+export async function saveChart(chartData: Chart, userId: string) {
+  const db = await dbPromise;
+  await db.add("charts", {
+    ...chartData,
+    userId,
+    createdAt: new Date().toISOString(),
+  });
+}
+
+export async function getCharts(userId: string): Promise<ChartsObjectStore[]> {
+  const db = await dbPromise;
+  const allCharts = await db.getAll("charts");
+  return allCharts.filter((chart) => chart.userId === userId);
 }
 
 export async function deleteChart(id: number) {
-    const db = await dbPromise;
-    await db.delete('charts', id);
+  const db = await dbPromise;
+  await db.delete("charts", id);
 }

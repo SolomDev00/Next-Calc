@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { TooltipProps } from "recharts";
+import { ChartsType } from "../types";
 
 export interface CustomTooltipProps extends TooltipProps<number, string> {
     payload?: {
@@ -15,8 +16,9 @@ export interface CustomTooltipProps extends TooltipProps<number, string> {
 }
 
 export interface Chart {
-  id: number;
-  type: "bar" | "line" | "pie" | "rader" | "celsius" | "wave";
+  id: string;
+  type: ChartsType;
   data: any;
   createdAt: string;
+  userId: string | undefined;
 }

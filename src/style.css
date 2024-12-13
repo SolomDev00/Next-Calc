@@ -10,8 +10,6 @@
 
 :root {
   --primary: #6c35de;
-  --accent: #a4e1d2;
-  --secondary: #2e2e2e;
   --shadow-color: #e9e6e4;
   --shadow: 0px 0px 0px 2.4px var(--shadow-color),
     0px 0px 2.8px 0px var(--shadow-color);
@@ -128,226 +126,23 @@ body::-webkit-scrollbar-thumb {
   }
 }
 
-.image-float {
-  animation: float 4s ease-in-out infinite;
-  cursor: pointer;
-}
-
-.image-float:hover {
-  scale: 1.1;
-}
-
 input {
-  /* border-radius: 0px !important; */
   font-family: "Nunito", sans-serif;
 }
 
 svg.p-icon.p-dropdown-trigger-icon.p-clickable {
-  fill: var(--accent) !important;
-  color: var(--accent) !important;
-}
-
-.react-international-phone-input-container {
-  border-radius: 0.5rem !important;
-  padding: 0 10px;
-}
-
-.react-international-phone-input-container:focus {
-  border-color: #07253d;
-  outline: none;
-  box-shadow: 0 0 0 2px #07253d;
-}
-
-.react-international-phone-country-selector button {
-  background-color: transparent !important;
-  border: 0px;
-  width: 100% !important;
-  height: 50px !important;
-  margin-right: 15px;
-  padding-right: 10px;
-}
-
-.react-international-phone-input {
-  width: 100% !important;
-  height: 50px !important;
-  padding-top: 0.75rem !important;
-  padding-bottom: 0.75rem !important;
-  padding-left: 0.75rem !important;
-  padding-right: 0.75rem !important;
-  font-size: 1rem !important;
-  background-color: transparent !important;
-  color: black !important;
-  font-family: "Montserrat", sans-serif;
-  border: 0px !important;
+  fill: var(--primary) !important;
+  color: var(--primary) !important;
 }
 
 .recharts-surface {
   cursor: pointer !important;
 }
 
-.avgs {
-  border: 1px 0px 0px 0px;
-  opacity: 0px;
-  border: 1px solid var(--Text-Strok, #63778614);
-  box-shadow: 0px 4px 8px 0px #0000000a;
-}
-
-.p-column-header-content {
-  gap: 10px;
-}
-
-.p-inputtext {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: 0 0 0 0.2rem transparent;
-  border-color: transparent;
-}
-
-.p-inputtext:focus {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: 0 0 0 0.2rem transparent;
-  border-color: transparent;
-}
-
-.p-inputtext:enabled:focus {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: 0 0 0 0.2rem transparent;
-  border-color: transparent;
-}
-
-.p-button {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: 0 0 0 0.2rem transparent;
-  border-color: transparent;
-}
-
-.p-button:focus {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: 0 0 0 0.2rem transparent;
-  border-color: transparent;
-}
-
-.p-datatable .p-datatable-thead > tr > th {
-  background-color: #e8f0f7;
-  color: var(--primary);
-  padding: 10px 5px;
-}
-
-.p-datatable .p-datatable-thead > tr > th:first-child {
-  border-radius: 12px 0 0 12px;
-}
-
-.p-datatable .p-datatable-thead > tr > th:last-child {
-  border-radius: 0 12px 12px 0;
-}
-
-.p-datatable .p-datatable-tbody > tr > td {
-  background-color: #0d406903;
-  color: #000000e5;
-}
-
-.p-datatable .p-datatable-tbody > tr:hover {
-  background-color: #e0e0e0;
-}
-
-.p-datatable .p-datatable-thead > tr > th {
-  padding: 16px;
-  margin-bottom: 10px;
-}
-
-.p-datatable .p-datatable-tbody > tr > td {
-  padding: 12px;
-  border-bottom: 1px solid #ddd;
-}
-
-.p-datatable .p-datatable-tbody > tr:hover {
-  background-color: #f5f5f5;
-}
-
-.p-datatable .p-datatable-footer {
-  margin-top: 20px;
-}
-
-.p-datatable .p-datatable-tbody > tr {
-  margin-bottom: 10px;
-}
-
-.p-datatable .p-datatable-tbody > tr > td {
-  padding: 12px;
-}
-
-.p-paginator-bottom {
-  justify-content: flex-end;
-  margin-top: 25px;
-}
-
 .p-highlight {
   background-color: var(--primary);
   border-radius: 12px;
   color: white;
-}
-
-.p-paginator-element {
-  color: #000000cc;
-}
-
-.p-highlight.p-paginator-element {
-  color: white;
-}
-
-.p-paginator-prev {
-  color: var(--primary);
-}
-
-.p-paginator-next {
-  color: var(--primary);
-}
-
-.p-column-header-content {
-  gap: 10px;
-}
-
-.p-inputtext {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: 0 0 0 0.2rem transparent;
-  border-color: transparent;
-}
-
-.p-inputtext:focus {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: 0 0 0 0.2rem transparent;
-  border-color: transparent;
-}
-
-.p-inputtext:enabled:focus {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: 0 0 0 0.2rem transparent;
-  border-color: transparent;
-}
-
-span.p-button-label {
-  font-weight: 600;
-}
-
-.p-button {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: 0 0 0 0.2rem transparent;
-  border-color: transparent;
-}
-
-.p-button:focus {
-  outline: 0 none;
-  outline-offset: 0;
-  box-shadow: 0 0 0 0.2rem transparent;
-  border-color: transparent;
 }
 
 .p-dropdown {
@@ -364,85 +159,10 @@ span.p-button-label {
   border-color: transparent;
 }
 
-.p-datatable .p-datatable-thead > tr > th {
-  background-color: #e8f0f7;
-  color: var(--primary);
-  padding: 10px 5px;
-}
-
-.p-datatable .p-datatable-thead > tr > th:first-child {
-  border-radius: 12px 0 0 12px;
-}
-
-.p-datatable .p-datatable-thead > tr > th:last-child {
-  border-radius: 0 12px 12px 0;
-}
-
-.p-datatable .p-datatable-tbody > tr > td {
-  background-color: #0d406903;
-  color: #000000e5;
-}
-
-.p-datatable .p-datatable-tbody > tr:hover {
-  background-color: #e0e0e0;
-}
-
-.p-datatable .p-datatable-thead > tr > th {
-  padding: 16px;
-  margin-bottom: 10px;
-}
-
-.p-datatable .p-datatable-tbody > tr > td {
-  padding: 12px;
-  border-bottom: 1px solid #ddd;
-}
-
-.p-datatable .p-datatable-tbody > tr:hover {
-  background-color: #f5f5f5;
-}
-
-.p-datatable .p-datatable-footer {
-  margin-top: 20px;
-}
-
-.p-datatable .p-datatable-tbody > tr {
-  margin-bottom: 10px;
-}
-
-.p-datatable .p-datatable-tbody > tr > td {
-  padding: 12px;
-}
-
-.p-paginator-bottom {
-  justify-content: flex-end;
-  margin-top: 25px;
-}
-
 .p-highlight {
   background-color: var(--primary);
   border-radius: 12px;
   color: white;
-}
-
-.p-paginator-element {
-  color: #000000cc;
-}
-
-.p-highlight.p-paginator-element {
-  color: white;
-}
-
-.p-paginator-prev {
-  color: var(--primary);
-}
-
-.p-paginator-next {
-  color: var(--primary);
-}
-
-.code-block {
-  overflow: auto;
-  white-space: pre-wrap;
 }
 
 .p-dropdown-trigger {
