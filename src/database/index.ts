@@ -34,7 +34,7 @@ export async function getCharts(userId: string): Promise<ChartsObjectStore[]> {
   return allCharts.filter((chart) => chart.userId === userId);
 }
 
-export async function deleteChart(id: number) {
+export async function deleteChart(id: string) {
   const db = await dbPromise;
   await db.delete("charts", id);
 }

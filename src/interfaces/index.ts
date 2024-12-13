@@ -15,6 +15,13 @@ export interface CustomTooltipProps extends TooltipProps<number, string> {
     label?: string;
 }
 
+export interface ChartsObjectStore {
+  id: string;
+  userId: string;
+  createdAt: string;
+  data: Chart;
+}
+
 export interface Chart {
   id: string;
   type: ChartsType;

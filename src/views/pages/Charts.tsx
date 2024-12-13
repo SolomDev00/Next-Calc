@@ -134,7 +134,6 @@ export default function ChartsPreview() {
       await saveChart(chartData, chartData.userId);
       toast.success("Chart saved successfully!");
     } catch (error) {
-      console.error("Failed to save chart:", error);
       toast.error("Failed to save chart.");
     }
   };

@@ -10,7 +10,6 @@ const PieChartComponent = ({ data }: { data: DataPoint[] }) => {
     }) => {
         if (active && payload && payload.length) {
             const value = payload.find((p) => p.dataKey === "value");
-            console.log(payload);
             return (
                 <div
                     style={{
