@@ -119,7 +119,7 @@ const Navbar = () => {
           <ScrollLink
             onClick={() => scroll.scrollToTop()}
             to="/"
-            title={"Bringovia SMSID"}
+            title={"NextCalc"}
             aria-label="home"
             className="logo"
           >

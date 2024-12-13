@@ -6,7 +6,7 @@ const App = () => {
   return (
     <>
       <RouterProvider router={routers} />
-      <Toaster toastOptions={{ duration: 3400, position: "top-right", className: "mt-20" }}>
+      <Toaster toastOptions={{ duration: 2000, position: "bottom-right" }}>
         {(t) => (
           <ToastBar
             toast={t}

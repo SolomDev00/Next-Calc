@@ -10,6 +10,7 @@ import IosHi from '../../assets/icons/ios_hi.svg';
 import Input from '../../components/schema/Input';
 import RaderChartComponent from '../../components/dashboard-charts/RaderChart';
 import CelsiusChartComponent from '../../components/dashboard-charts/CelsiusChart';
+import toast from 'react-hot-toast';
 
 export default function ChartSelector() {
     const user = useUser();
@@ -18,7 +19,10 @@ export default function ChartSelector() {
     const [dataInputs, setDataInputs] = useState<DataPoint[]>([{ key: '', value: '' }]);
 
     const handleAddInput = () => {
-        if (dataInputs.some((input) => input.key === '' || input.value === '')) return;
+        if (dataInputs.some((input) => input.key === '' || input.value === '')) {
+            toast.error('All fields must be filled before adding a new input.');
+            return;
+        }
         setDataInputs((prev) => [...prev, { key: '', value: '' }]);
     };
 
@@ -37,41 +41,55 @@ export default function ChartSelector() {
             const hasEmptyFields = dataInputs.some((input) => input.key === '' || input.value === '');
             const hasDuplicateLabels = new Set(dataInputs.map((input) => input.key)).size !== dataInputs.length;
 
-            if (hasEmptyFields || hasDuplicateLabels) return;
+            if (hasEmptyFields) {
+                toast.error('Please fill all fields before adding a new input.');
+                return;
+            }
+
+            if (hasDuplicateLabels) {
+                toast.error('Labels must be unique.');
+                return;
+            }
+
             handleAddInput();
         }
     };
 
     const handleDeleteInput = (index: number) => {
+        if (index === 0) {
+            toast.error('You cannot delete the first input.');
+            return;
+        }
         setDataInputs((prev) => prev.filter((_, i) => i !== index));
     };
 
     const handleReset = () => {
         setDataInputs([{ key: '', value: '' }]);
+        toast.success('Inputs have been reset.');
     };
 
     const chartOptions = [
-        { label: 'Bar Chart', value: 'bar', icon: '/path-to-bar-icon.png' },
-        { label: 'Line Chart', value: 'line', icon: '/path-to-line-icon.png' },
-        { label: 'Pie Chart', value: 'pie', icon: '/path-to-pie-icon.png' },
-        { label: 'Rader Chart', value: 'rader', icon: '/path-to-pie-icon.png' },
-        { label: 'Celsius Chart', value: 'celsius', icon: '/path-to-pie-icon.png' },
+        { label: 'Bar Chart', value: 'bar' },
+        { label: 'Line Chart', value: 'line' },
+        { label: 'Pie Chart', value: 'pie' },
+        { label: 'Rader Chart', value: 'rader' },
+        { label: 'Celsius Chart', value: 'celsius' },
     ];
 
     return (
         <div className="container w-[85%] mt-40">
             <div className="flex items-center justify-between gap-2 mb-5">
-            <div className="flex items-center gap-2">
-                <h3 className="text-2xl text-white">
-                    Welcome, <span className="font-medium text-primary">{user.user?.username}</span>
-                </h3>
-                <img className="w-6 h-6" src={IosHi} alt="Ios Hello" />
-            </div>
+                <div className="flex items-center gap-2">
+                    <h3 className="text-2xl text-white">
+                        Welcome, <span className="font-medium text-primary">{user.user?.username}</span>
+                    </h3>
+                    <img className="w-6 h-6" src={IosHi} alt="Ios Hello" />
+                </div>
                 <button
                     className="bg-transparent border border-primary flex items-center gap-2 text-white px-6 py-2 rounded-md hover:bg-primary duration-150 ease-out"
                     onClick={handleReset}
                 >
-                    Reset <SoCog6 className="w-5 h-5"/>
+                    Reset <SoCog6 className="w-5 h-5" />
                 </button>
             </div>
             <div className="flex items-center justify-center mb-5">
@@ -117,8 +135,9 @@ export default function ChartSelector() {
                                 </div>
                             </div>
                             <button
-                                className="bg-red-200 text-white p-2 rounded-md hover:bg-red-300"
+                                className={`p-2 bg-red-200 rounded-md hover:bg-red-300 ${index === 0 ? 'cursor-not-allowed' : ''}`}
                                 onClick={() => handleDeleteInput(index)}
+                                disabled={index === 0}
                             >
                                 <SoTrash className="text-red-600 w-6 h-6" />
                             </button>
