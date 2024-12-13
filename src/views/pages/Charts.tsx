@@ -13,6 +13,7 @@ import CelsiusChartComponent from '../../components/dashboard-charts/CelsiusChar
 import toast from 'react-hot-toast';
 import WaveChartComponent from '../../components/dashboard-charts/WaveChart';
 import { saveChart } from '../../database';
+import { Link } from 'react-router-dom';
 
 export default function ChartsPreview() {
     const user = useUser();
@@ -191,6 +192,9 @@ export default function ChartsPreview() {
                     {selectedChart === 'wave' && <WaveChartComponent data={dataInputs} />}
                 </div>
             )}
+            <Link to="/recent-charts" className="text-primary font-medium hover:underline">
+                Recent Charts
+            </Link>
         </div>
     );
 }

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { TooltipProps } from "recharts";
 
 export interface CustomTooltipProps extends TooltipProps<number, string> {
@@ -11,4 +12,11 @@ export interface CustomTooltipProps extends TooltipProps<number, string> {
         }
     }[];
     label?: string;
+}
+
+export interface Chart {
+  id: number;
+  type: "bar" | "line" | "pie";
+  data: any;
+  createdAt: string; 
 }
