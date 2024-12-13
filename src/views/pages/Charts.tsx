@@ -108,7 +108,7 @@ export default function ChartsPreview() {
     };
 
     return (
-        <div className="container w-[85%] mt-40">
+        <div>
             <div className="flex items-center justify-between gap-2 mb-5">
                 <div className="flex items-center gap-2">
                     <h3 className="text-2xl text-white">

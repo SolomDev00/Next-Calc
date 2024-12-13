@@ -23,7 +23,7 @@ const RootLayout = () => {
       ) : (
         <>
           <Navbar />
-          <main className="w-full">
+          <main className="container w-[85%] mt-40">
             <Outlet />
           </main>
           <Footer />
