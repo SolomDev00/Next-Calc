@@ -1,9 +1,9 @@
 import "./Navbar.style.css";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import LogoImg from '../../assets/logo.png'
 import { useEffect, useState } from "react";
 import { SoArrowDown, SoSquareArrowUpRight, SoXmarkCircle } from "solom-icon";
-import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
 import Button from "../ui/Button";
 
@@ -116,8 +116,7 @@ const Navbar = () => {
         }}
       >
         <div className="navbar">
-          <ScrollLink
-            onClick={() => scroll.scrollToTop()}
+          <Link
             to="/"
             title={"NextCalc"}
             aria-label="home"
@@ -128,7 +127,7 @@ const Navbar = () => {
               src={LogoImg}
               alt="logo"
             />
-          </ScrollLink>
+          </Link>
           <div>
               <SignedOut>
               <SignInButton>

@@ -8,6 +8,9 @@ import { Chart } from "../../interfaces/index";
 import { SoAddSquare, SoTrash } from "solom-icon";
 import { Link } from "react-router-dom";
 import IosWow from "../../assets/icons/ios_wow.svg";
+import RaderChartComponent from "../../components/dashboard-charts/RaderChart";
+import CelsiusChartComponent from "../../components/dashboard-charts/CelsiusChart";
+import WaveChartComponent from "../../components/dashboard-charts/WaveChart";
 
 const RecentCharts = () => {
   const [charts, setCharts] = useState<Chart[]>([]);
@@ -34,6 +37,12 @@ const RecentCharts = () => {
         return <LineChartComponent data={chart.data} />;
       case "pie":
         return <PieChartComponent data={chart.data} />;
+        case "rader":
+        return <RaderChartComponent data={chart.data} />;
+        case "celsius":
+        return <CelsiusChartComponent data={chart.data} />;
+        case "wave":
+        return <WaveChartComponent data={chart.data} />;
       default:
         return null;
     }
@@ -53,7 +62,7 @@ const RecentCharts = () => {
         </Link>
       </div>
       {charts.length === 0 ? (
-        <p>No charts found.</p>
+        <p className="text-gray-500">No charts found.</p>
       ) : (
         charts.map((chart) => (
           <div key={chart.id} className=" border p-4 rounded-md shadow-md mb-5">

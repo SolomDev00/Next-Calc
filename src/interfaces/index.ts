@@ -16,7 +16,7 @@ export interface CustomTooltipProps extends TooltipProps<number, string> {
 
 export interface Chart {
   id: number;
-  type: "bar" | "line" | "pie";
+  type: "bar" | "line" | "pie" | "rader" | "celsius" | "wave";
   data: any;
-  createdAt: string; 
+  createdAt: string;
 }
