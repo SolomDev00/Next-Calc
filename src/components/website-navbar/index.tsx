@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { SoArrowDown, SoSquareArrowUpRight, SoXmarkCircle } from "solom-icon";
 import { Link as ScrollLink, animateScroll as scroll } from "react-scroll";
 import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
-import Button from "../schema/Button";
+import Button from "../ui/Button";
 
 const Navbar = () => {
   const [showMenu, setShowMenu] = useState(false);

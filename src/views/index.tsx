@@ -1,8 +1,8 @@
-import ChartSelector from "./pages/Charts";
+import ChartsPreview from "./pages/Charts";
 
 const HomePage = () => {
   return (
-    <ChartSelector />
+    <ChartsPreview />
   );
 };
 

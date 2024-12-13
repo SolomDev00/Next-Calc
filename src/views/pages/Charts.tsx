@@ -7,12 +7,12 @@ import LineChartComponent from '../../components/dashboard-charts/LineChart';
 import BarChartComponent from '../../components/dashboard-charts/BarChart';
 import { SoAddNote, SoCog6, SoEditSquare, SoTrash } from 'solom-icon';
 import IosHi from '../../assets/icons/ios_hi.svg';
-import Input from '../../components/schema/Input';
+import Input from '../../components/ui/Input';
 import RaderChartComponent from '../../components/dashboard-charts/RaderChart';
 import CelsiusChartComponent from '../../components/dashboard-charts/CelsiusChart';
 import toast from 'react-hot-toast';
 
-export default function ChartSelector() {
+export default function ChartsPreview() {
     const user = useUser();
 
     const [selectedChart, setSelectedChart] = useState('');
