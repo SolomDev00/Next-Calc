@@ -2,7 +2,7 @@ import { Cell, Pie, PieChart, Tooltip } from "recharts";
 import { DataPoint } from "../../types";
 
 const PieChartComponent = ({ data }: { data: DataPoint[] }) => (
-    <PieChart width={400} height={400}>
+    <PieChart width={400} height={250}>
         <Pie
             data={data}
             dataKey="value"
