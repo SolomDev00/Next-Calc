@@ -440,11 +440,6 @@ span.p-button-label {
   color: var(--primary);
 }
 
-li.p-focus {
-  background-color: white;
-  border-radius: 0px;
-  color: #000000e5;
-}
 .code-block {
   overflow: auto;
   white-space: pre-wrap;
@@ -521,6 +516,20 @@ label:hover {
 .cl-avatarBox {
   width: 36px;
   height: 36px;
+}
+
+.p-dropdown-item {
+  border-radius: 6px;
+  color: white;
+  background-color: #6c35de;
+  padding: 3px 10px;
+}
+
+li.p-focus {
+  border-radius: 6px;
+  color: white;
+  background-color: rgb(108, 53, 222, 0.7);
+  padding: 3px 10px;
 }
 
 .cl-internal-1grbo8b {
