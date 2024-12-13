@@ -11,6 +11,7 @@ import Input from '../../components/ui/Input';
 import RaderChartComponent from '../../components/dashboard-charts/RaderChart';
 import CelsiusChartComponent from '../../components/dashboard-charts/CelsiusChart';
 import toast from 'react-hot-toast';
+import WaveChartComponent from '../../components/dashboard-charts/WaveChart';
 
 export default function ChartsPreview() {
     const user = useUser();
@@ -74,6 +75,7 @@ export default function ChartsPreview() {
         { label: 'Pie Chart', value: 'pie' },
         { label: 'Rader Chart', value: 'rader' },
         { label: 'Celsius Chart', value: 'celsius' },
+        { label: 'Wave Chart', value: 'wave' },
     ];
 
     return (
@@ -152,6 +154,7 @@ export default function ChartsPreview() {
                     {selectedChart === 'pie' && <PieChartComponent data={dataInputs} />}
                     {selectedChart === 'rader' && <RaderChartComponent data={dataInputs} />}
                     {selectedChart === 'celsius' && <CelsiusChartComponent data={dataInputs} />}
+                    {selectedChart === 'wave' && <WaveChartComponent data={dataInputs} />}
                 </div>
             )}
         </div>
