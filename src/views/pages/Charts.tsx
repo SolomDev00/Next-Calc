@@ -42,7 +42,7 @@ export default function ChartSelector() {
     ];
 
     return (
-        <div className="mt-40 container w-[85%]">
+        <div className="container w-[85%] mt-40">
             <div className='flex items-center gap-2'>
                 <h3 className="text-2xl text-white">Welcome, <span className='font-medium text-primary'>{user.user?.username}</span></h3>
                 <img className="w-6 h-6" src={IosHi} alt='Ios Hello' />

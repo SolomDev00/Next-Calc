@@ -1,12 +1,8 @@
-import ContactSection from "./website/ContactSection";
-import LandingSection from "./website/LandingSection";
+import ChartSelector from "./pages/Charts";
 
 const HomePage = () => {
   return (
-    <div className="w-full mb-8 max-sm:overflow-x-hidden relative">
-      <LandingSection />
-      <ContactSection />
-    </div>
+    <ChartSelector />
   );
 };
 
