@@ -36,14 +36,14 @@ const PieChartComponent = ({ data }: { data: DataPoint[] }) => {
     };
 
     return (
-    <PieChart width={400} height={260}>
+    <PieChart width={400} height={300}>
         <Pie
             data={data}
             dataKey="value"
             nameKey="key"
             cx="50%"
             cy="50%"
-            outerRadius={100}
+            outerRadius={115}
             fill="#8884d8"
             label
         >

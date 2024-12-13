@@ -42,7 +42,7 @@ const LineChartComponent = ({ data }: { data: DataPoint[] }) => {
     return null;
   };
   return (
-    <LineChart width={500} height={300} data={data}>
+    <LineChart width={800} height={420} data={data}>
       <CartesianGrid strokeDasharray="3 3" />
       <XAxis dataKey="key" />
       <YAxis />

@@ -39,14 +39,14 @@ const renderCustomizedLabel = ({
 
 const CelsiusChartComponent = ({ data }: { data: DataPoint[] }) => {
   return (
-    <PieChart width={440} height={210}>
+    <PieChart width={400} height={300}>
       <Pie
         data={data}
         cx="50%"
         cy="50%"
         labelLine={false}
         label={renderCustomizedLabel}
-        outerRadius={100}
+        outerRadius={115}
         fill="#8884d8"
         dataKey="value"
       >

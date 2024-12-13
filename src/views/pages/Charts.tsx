@@ -29,8 +29,13 @@ export default function ChartsPreview() {
 
     const handleUpdateInput = (index: number, field: 'key' | 'value', value: string) => {
         const updatedInputs = [...dataInputs];
+
         if (field === 'value') {
-            updatedInputs[index].value = isNaN(Number(value)) ? value : Number(value);
+            if (!/^\d*$/.test(value)) {
+                toast.error('Value must contain numbers only.');
+                return;
+            }
+            updatedInputs[index].value = Number(value);
         } else if (field === 'key') {
             updatedInputs[index].key = value;
         }
@@ -42,6 +47,8 @@ export default function ChartsPreview() {
             const hasEmptyFields = dataInputs.some((input) => input.key === '' || input.value === '');
             const hasDuplicateLabels = new Set(dataInputs.map((input) => input.key)).size !== dataInputs.length;
 
+            const hasNonNumericValues = dataInputs.some((input) => isNaN(Number(input.value)));
+
             if (hasEmptyFields) {
                 toast.error('Please fill all fields before adding a new input.');
                 return;
@@ -49,6 +56,11 @@ export default function ChartsPreview() {
 
             if (hasDuplicateLabels) {
                 toast.error('Labels must be unique.');
+                return;
+            }
+
+            if (hasNonNumericValues) {
+                toast.error('Values must contain numbers only.');
                 return;
             }
 
