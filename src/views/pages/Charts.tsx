@@ -12,6 +12,7 @@ import RaderChartComponent from '../../components/dashboard-charts/RaderChart';
 import CelsiusChartComponent from '../../components/dashboard-charts/CelsiusChart';
 import toast from 'react-hot-toast';
 import WaveChartComponent from '../../components/dashboard-charts/WaveChart';
+import { saveChart } from '../../database';
 
 export default function ChartsPreview() {
     const user = useUser();
@@ -90,6 +91,21 @@ export default function ChartsPreview() {
         { label: 'Wave Chart', value: 'wave' },
     ];
 
+    const handleSaveChart = async () => {
+        if (!selectedChart || dataInputs.some(input => input.key === '' || input.value === '')) {
+            toast.error('Please select a chart and complete all fields before saving.');
+            return;
+        }
+
+        const chartData = {
+            type: selectedChart,
+            data: dataInputs,
+        };
+
+        await saveChart(chartData);
+        toast.success('Chart saved successfully!');
+    };
+
     return (
         <div className="container w-[85%] mt-40">
             <div className="flex items-center justify-between gap-2 mb-5">
@@ -104,6 +120,12 @@ export default function ChartsPreview() {
                     onClick={handleReset}
                 >
                     Reset <SoCog6 className="w-5 h-5" />
+                </button>
+                <button
+                    className="bg-transparent border border-primary flex items-center gap-2 text-white px-6 py-2 rounded-md hover:bg-primary duration-150 ease-out"
+                    onClick={handleSaveChart}
+                >
+                    Save Chart <SoAddNote className="w-5 h-5" />
                 </button>
             </div>
             <div className="flex items-center justify-center mb-5">
