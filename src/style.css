@@ -532,6 +532,10 @@ li.p-focus {
   padding: 3px 10px;
 }
 
+.p-dropdown-items-wrapper {
+  max-height: 1000px !important;
+}
+
 .cl-internal-1grbo8b {
   z-index: 999999;
 }
