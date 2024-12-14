@@ -54,7 +54,7 @@ const RecentCharts = () => {
 
   const formatDateTime = (date: string | null) => {
     if (!date) {
-      return "N/A";
+      return "-";
     }
     return new Date(date).toLocaleString();
   };
