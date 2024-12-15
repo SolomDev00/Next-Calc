@@ -1,6 +1,6 @@
-# Differential Chart Creator
+# NextCalc
 
-🚀 **[Live Demo]([https://nextgen-todos.vercel.app/](https://nextgen-todos.vercel.app/))**
+🚀 **[Live Demo](https://nextgen-todos.vercel.app/)**
 
 > An advanced web application to create, save, and manage interactive charts with ease.
 
@@ -49,8 +49,8 @@
 
 1. **Clone the Repository**
    ```bash
-   git clone https://github.com/YourUsername/DifferentialChartCreator.git
-   cd DifferentialChartCreator
+   git clone https://github.com/SolomDev00/Next-Calc.git
+   cd Next-Calc
    ```
 
 2. **Install Dependencies**
@@ -84,7 +84,7 @@
 
 ## 🌍 Live Example
 
-Try it out here: **[Live Demo](https://your-vercel-link.vercel.app)**
+Try it out here: **[Live Demo](https://nextgen-todos.vercel.app)**
 
 ---
 
