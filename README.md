@@ -11,6 +11,7 @@
 - **Multi-chart Support:** Create various chart types: Line, Wave, Pie, Celsius, Bar, and Radar.
 - **Dynamic Input:** Add labels (x-axis) and values (y-axis) for your charts dynamically.
 - **Save and View:** Save charts to the IndexedDB and revisit them via the **Recent Charts** page.
+- **Screenshot and Share:** Take screenshots of your charts and share them with friends easily.
 - **User Authentication:** Login using Clerk with email, Facebook, GitHub, or LinkedIn.
 - **Responsive UI:** A clean, user-friendly interface with smooth interactions.
 
