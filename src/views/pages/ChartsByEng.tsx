@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Dropdown } from "primereact/dropdown";
 import { useUser } from "@clerk/clerk-react";
-import PieChartComponent from "../../components/dashboard-charts/PieChart";
 import { ChartsType } from "../../types";
 import LineChartComponent from "../../components/dashboard-charts/LineChart";
 import BarChartComponent from "../../components/dashboard-charts/BarChart";
@@ -16,6 +15,7 @@ import { saveChart } from "../../database";
 import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { evaluate } from "mathjs";
+import EnhancedLineChart from "../../components/dashboard-charts/EnhancedLineChart";
 
 export default function ChartsByEng() {
   const user = useUser();
@@ -35,23 +35,34 @@ export default function ChartsByEng() {
   const handleUpdateInput = (index: number, field: "key" | "value" | "result", value: string) => {
     const updatedInputs = [...dataInputs];
 
-    if (field === "value") {
-      // السماح بالكتابة الحرة للحروف والمعادلات الرياضية
-      const validCharacters = /^[a-zA-Z0-9+\-*/^().\s]*$/;  // السماح بالحروف والعمليات الرياضية
+    if (selectedChart === "EnhancedLineChart") {
+      if (field === "value") {
+        const validCharacters = /^[a-zA-Z0-9+\-*/^().\s]*$/;
 
-      if (!validCharacters.test(value)) {
-        toast.error("Only valid mathematical characters and functions (e.g., sin, cos, etc.) are allowed.");
-        return;
-      }
+        if (!validCharacters.test(value)) {
+          toast.error("Only valid mathematical characters and functions (e.g., sqrt, sin, cos, etc.) are allowed.");
+          return;
+        }
 
-      try {
-        // تأكد من أن المعادلة تحتوي على حروف يتم تفسيرها بشكل صحيح (مثل sin, cos)
-        const evaluatedValue = evaluate(value, { x: 1, y: 1 });
-        updatedInputs[index].value = value;  // حفظ المعادلة
-        updatedInputs[index].result = `${evaluatedValue}`;  // حفظ النتيجة
-      } catch (error) {
-        toast.error("Invalid mathematical expression.");
-        return;
+        try {
+          const evaluatedValue = evaluate(value, { x: 1, y: 1 });
+
+          updatedInputs[index].value = value;
+          updatedInputs[index].result = `${evaluatedValue}`;
+        } catch (error) {
+          toast.error("Invalid mathematical expression.");
+          return;
+        }
+      } else if (field === "key") {
+        try {
+          evaluate(value, { x: 1, y: 1 });
+          updatedInputs[index].key = value;
+        } catch (error) {
+          toast.error("Invalid X-axis equation.");
+          return;
+        }
+      } else {
+        updatedInputs[index][field] = value;
       }
     } else {
       updatedInputs[index][field] = value;
@@ -59,7 +70,6 @@ export default function ChartsByEng() {
 
     setDataInputs(updatedInputs);
   };
-
 
   const handleDeleteInput = (index: number) => {
     if (index === 0) {
@@ -77,7 +87,7 @@ export default function ChartsByEng() {
   const chartOptions = [
     { label: "Bar Chart", value: "bar" },
     { label: "Line Chart", value: "line" },
-    { label: "Pie Chart", value: "pie" },
+    { label: "EnhancedLine Chart", value: "enhanced" },
     { label: "Rader Chart", value: "rader" },
     { label: "Celsius Chart", value: "celsius" },
     { label: "Wave Chart", value: "wave" },
@@ -233,7 +243,7 @@ export default function ChartsByEng() {
             {selectedChart === "line" && (
               <LineChartComponent data={dataInputs} />
             )}
-            {selectedChart === "pie" && <PieChartComponent data={dataInputs} />}
+            {selectedChart === "enhanced" && <EnhancedLineChart data={dataInputs} />}
             {selectedChart === "rader" && (
               <RaderChartComponent data={dataInputs} />
             )}
