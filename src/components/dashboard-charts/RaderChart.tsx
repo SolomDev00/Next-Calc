@@ -15,7 +15,7 @@ const RaderChartComponent = ({ data }: { data: DataPoint[] }) => (
         <PolarRadiusAxis angle={30} />
         <Radar
             name="Status"
-            dataKey="value"
+            dataKey="result"
             stroke="#6c35de"
             fill="#805AD5"
             fillOpacity={0.8}

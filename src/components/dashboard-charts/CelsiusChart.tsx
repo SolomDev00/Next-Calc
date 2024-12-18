@@ -48,7 +48,7 @@ const CelsiusChartComponent = ({ data }: { data: DataPoint[] }) => {
         label={renderCustomizedLabel}
         outerRadius={115}
         fill="#8884d8"
-        dataKey="value"
+        dataKey="result"
       >
         {data.map((_entry, index) => (
             <Cell key={`cell-${index}`} fill={["#8884d8", "#82ca9d", "#ECC94B", "#E53E3E", "#3182CE"][index % 5]} />

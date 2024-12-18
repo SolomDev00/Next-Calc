@@ -3,16 +3,17 @@ import { TooltipProps } from "recharts";
 import { ChartsType } from "../types";
 
 export interface CustomTooltipProps extends TooltipProps<number, string> {
-    payload?: {
-        name: string;
-        value: number;
-        color: string;
-        dataKey: string;
-        payload: {
-            key: string;
-        }
-    }[];
-    label?: string;
+  payload?: {
+    name: string;
+    value: number;
+    result: number;
+    color: string;
+    dataKey: string;
+    payload: {
+      key: string;
+    };
+  }[];
+  label?: string;
 }
 
 export interface ChartsObjectStore {

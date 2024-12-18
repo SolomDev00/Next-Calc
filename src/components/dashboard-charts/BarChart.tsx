@@ -21,7 +21,7 @@ const BarChartComponent = ({ data }: { data: DataPoint[] }) => {
             {value ? value.payload.key : ""}
           </p>
           <p style={{ color: "#ffffff", fontSize: 16 }}>
-            Value: {value ? value.value : "-"}
+            Value: {value ? value.result : "-"}
           </p>
         </div>
       );
@@ -36,7 +36,7 @@ const BarChartComponent = ({ data }: { data: DataPoint[] }) => {
       <XAxis dataKey="key" />
       <YAxis />
       <Tooltip content={<CustomTooltip />} />
-          <Bar dataKey="value" fill="#a364ff" activeBar={false} />
+          <Bar dataKey="result" fill="#a364ff" activeBar={false} />
     </BarChart>
   );
 };

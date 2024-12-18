@@ -33,7 +33,7 @@ const LineChartComponent = ({ data }: { data: DataPoint[] }) => {
             {label}
           </p>
           <p style={{ color: "#ffffff", fontSize: 16 }}>
-            Value: {value ? value.value : "-"}
+            Value: {value ? value.result : "-"}
           </p>
         </div>
       );
@@ -47,7 +47,7 @@ const LineChartComponent = ({ data }: { data: DataPoint[] }) => {
       <XAxis dataKey="key" />
       <YAxis />
       <Tooltip content={<CustomTooltip />} />
-      <Line type="monotone" dataKey="value" stroke="#a364ff" />
+      <Line type="monotone" dataKey="result" stroke="#a364ff" />
     </LineChart>
   );
 };

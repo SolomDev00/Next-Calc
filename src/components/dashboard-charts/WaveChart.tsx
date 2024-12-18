@@ -34,7 +34,7 @@ const WaveChartComponent = ({ data }: { data: DataPoint[] }) => {
             {label}
           </p>
             <p style={{ color: "#ffffff", fontSize: 16 }}>
-            Value: {value ? value.value : "-"}
+            Value: {value ? value.result : "-"}
           </p>
         </div>
       );
@@ -51,7 +51,7 @@ const WaveChartComponent = ({ data }: { data: DataPoint[] }) => {
       <Tooltip content={<CustomTooltip />} />
       <Area
         type="monotone"
-        dataKey="value"
+        dataKey="result"
         stroke="#a364ff"
         fill="#a364ff"
         strokeLinejoin="round"

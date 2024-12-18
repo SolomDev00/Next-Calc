@@ -25,7 +25,7 @@ const PieChartComponent = ({ data }: { data: DataPoint[] }) => {
                         {value ? value.name : ""}
                     </p>
                     <p style={{ color: "#ffffff", fontSize: 16 }}>
-                        Value: {value ? value.value : "-"}
+                        Value: {value ? value.result : "-"}
                     </p>
                 </div>
             );
@@ -38,7 +38,7 @@ const PieChartComponent = ({ data }: { data: DataPoint[] }) => {
     <PieChart width={400} height={300}>
         <Pie
             data={data}
-            dataKey="value"
+            dataKey="result"
             nameKey="key"
             cx="50%"
             cy="50%"

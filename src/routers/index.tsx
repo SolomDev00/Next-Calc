@@ -12,7 +12,7 @@ import NotFoundPage from "../views/errors/404-NotFound";
 import SignInPage from "../views/auth/Login";
 import SignUpPage from "../views/auth/Register";
 import RecentCharts from "../views/pages/RecentCharts";
-import ChartsPreview from "../views/pages/Charts";
+import ChartsByEng from "../views/pages/ChartsByEng";
 
 const routers = createHashRouter(
   createRoutesFromElements(
@@ -20,7 +20,7 @@ const routers = createHashRouter(
       {/* Root Layout */}
       <Route path="/" element={<RootLayout />} errorElement={<ErrorHandler />}>
         <Route index element={<HomePage />} />
-        <Route path="/charts" element={<ChartsPreview />} />
+        <Route path="/eng-charts" element={<ChartsByEng />} />
         <Route path="/recent-charts" element={<RecentCharts />} />
         <Route path="/sign-in" element={<SignInPage />} />
         <Route path="/sign-up" element={<SignUpPage />} />
