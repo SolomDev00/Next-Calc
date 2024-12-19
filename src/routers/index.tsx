@@ -12,7 +12,6 @@ import NotFoundPage from "../views/errors/404-NotFound";
 import SignInPage from "../views/auth/Login";
 import SignUpPage from "../views/auth/Register";
 import RecentCharts from "../views/pages/RecentCharts";
-import ChartsByEng from "../views/pages/ChartsByEng";
 import LinearGraph from "../views/pages/LinearGraph";
 import MaxGraph from "../views/pages/MaxGraph";
 
@@ -24,7 +23,6 @@ const routers = createHashRouter(
         <Route index element={<HomePage />} />
         <Route path="/max" element={<MaxGraph />} />
         <Route path="/graphs" element={<LinearGraph />} />
-        <Route path="/eng-charts" element={<ChartsByEng />} />
         <Route path="/recent-charts" element={<RecentCharts />} />
         <Route path="/sign-in" element={<SignInPage />} />
         <Route path="/sign-up" element={<SignUpPage />} />

@@ -22,7 +22,7 @@ export default function ChartsPreview() {
 
   const [selectedChart, setSelectedChart] = useState("");
   const [dataInputs, setDataInputs] = useState<DataPoint[]>([
-    { key: "", value: "" },
+    { key: "", result: "" },
   ]);
 
   const handleAddInput = () => {
@@ -30,22 +30,22 @@ export default function ChartsPreview() {
       toast.error("All fields must be filled before adding a new input.");
       return;
     }
-    setDataInputs((prev) => [...prev, { key: "", value: "" }]);
+    setDataInputs((prev) => [...prev, { key: "", result: "" }]);
   };
 
   const handleUpdateInput = (
     index: number,
-    field: "key" | "value",
+    field: "key" | "result",
     value: string
   ) => {
     const updatedInputs = [...dataInputs];
 
-    if (field === "value") {
+    if (field === "result") {
       if (!/^\d*$/.test(value)) {
         toast.error("Value must contain numbers only.");
         return;
       }
-      updatedInputs[index].value = Number(value);
+      updatedInputs[index].result = Number(value);
     } else if (field === "key") {
       updatedInputs[index].key = value;
     }
@@ -55,14 +55,14 @@ export default function ChartsPreview() {
   const handleKeyPress = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") {
       const hasEmptyFields = dataInputs.some(
-        (input) => input.key === "" || input.value === ""
+        (input) => input.key === "" || input.result === ""
       );
       const hasDuplicateLabels =
         new Set(dataInputs.map((input) => input.key)).size !==
         dataInputs.length;
 
       const hasNonNumericValues = dataInputs.some((input) =>
-        isNaN(Number(input.value))
+        isNaN(Number(input.result))
       );
 
       if (hasEmptyFields) {
@@ -93,7 +93,7 @@ export default function ChartsPreview() {
   };
 
   const handleReset = () => {
-    setDataInputs([{ key: "", value: "" }]);
+    setDataInputs([{ key: "", result: "" }]);
     toast.success("Inputs have been reset.");
   };
 
@@ -206,9 +206,9 @@ export default function ChartsPreview() {
                   </div>
                   <Input
                     type="text"
-                    value={input.value.toString()}
+                    value={input.result.toString()}
                     onChange={(e) =>
-                      handleUpdateInput(index, "value", e.target.value)
+                      handleUpdateInput(index, "result", e.target.value)
                     }
                     onKeyDown={(e) => handleKeyPress(e)}
                   />

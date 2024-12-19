@@ -15,9 +15,8 @@ import { saveChart } from "../../database";
 import { Link } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 import { evaluate } from "mathjs";
-import EnhancedLineChart from "../../components/dashboard-charts/EnhancedLineChart";
 
-export default function ChartsByEng() {
+export default function ChartsAdv() {
   const user = useUser();
   const userId = user.user?.id;
 
@@ -35,7 +34,6 @@ export default function ChartsByEng() {
   const handleUpdateInput = (index: number, field: "key" | "value" | "result", value: string) => {
     const updatedInputs = [...dataInputs];
 
-    if (selectedChart === "EnhancedLineChart") {
       if (field === "value") {
         const validCharacters = /^[a-zA-Z0-9+\-*/^().\s]*$/;
 
@@ -53,21 +51,10 @@ export default function ChartsByEng() {
           toast.error("Invalid mathematical expression.");
           return;
         }
-      } else if (field === "key") {
-        try {
-          evaluate(value, { x: 1, y: 1 });
-          updatedInputs[index].key = value;
-        } catch (error) {
-          toast.error("Invalid X-axis equation.");
-          return;
-        }
       } else {
         updatedInputs[index][field] = value;
       }
-    } else {
-      updatedInputs[index][field] = value;
-    }
-
+    
     setDataInputs(updatedInputs);
   };
 
@@ -87,7 +74,6 @@ export default function ChartsByEng() {
   const chartOptions = [
     { label: "Bar Chart", value: "bar" },
     { label: "Line Chart", value: "line" },
-    { label: "EnhancedLine Chart", value: "enhanced" },
     { label: "Rader Chart", value: "rader" },
     { label: "Celsius Chart", value: "celsius" },
     { label: "Wave Chart", value: "wave" },
@@ -243,7 +229,6 @@ export default function ChartsByEng() {
             {selectedChart === "line" && (
               <LineChartComponent data={dataInputs} />
             )}
-            {selectedChart === "enhanced" && <EnhancedLineChart data={dataInputs} />}
             {selectedChart === "rader" && (
               <RaderChartComponent data={dataInputs} />
             )}

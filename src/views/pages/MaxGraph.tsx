@@ -150,13 +150,14 @@ const MaxGraph: React.FC = () => {
                 </span>
                 <Button
                   onClick={() => handleEditGraph(index)}
-                  className="text-primary"
+                  className="text-primary p-2"
                 >
                   <SoEditSquare2 className="w-4 h-4"/>
                 </Button>
                 <Button
                   onClick={() => handleDeleteGraph(index)}
                   variant="danger"
+                  className="p-2"
                 >
                   <SoTrash className="w-4 h-4" />
                 </Button>
