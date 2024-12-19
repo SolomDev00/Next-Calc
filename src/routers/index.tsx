@@ -14,6 +14,7 @@ import SignUpPage from "../views/auth/Register";
 import RecentCharts from "../views/pages/RecentCharts";
 import LinearGraph from "../views/pages/LinearGraph";
 import MaxGraph from "../views/pages/MaxGraph";
+import MatrixSolverPage from "../views/pages/MatrixSolver";
 
 const routers = createHashRouter(
   createRoutesFromElements(
@@ -22,6 +23,7 @@ const routers = createHashRouter(
       <Route path="/" element={<RootLayout />} errorElement={<ErrorHandler />}>
         <Route index element={<HomePage />} />
         <Route path="/max" element={<MaxGraph />} />
+        <Route path="/matrix" element={<MatrixSolverPage />} />
         <Route path="/graphs" element={<LinearGraph />} />
         <Route path="/recent-charts" element={<RecentCharts />} />
         <Route path="/sign-in" element={<SignInPage />} />
