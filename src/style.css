@@ -19,6 +19,10 @@ html {
   scroll-behavior: smooth;
 }
 
+canvas {
+    font-family: "Nunito", sans-serif !important;
+}
+
 body {
   background-color: #241b35;
   overflow-x: hidden;
