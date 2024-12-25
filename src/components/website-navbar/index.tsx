@@ -129,13 +129,13 @@ const Navbar = () => {
           <Link to="/" title={"NextCalc"} aria-label="home" className="logo">
             <img className={`ml-0`} src={LogoImg} alt="logo" />
           </Link>
-          <nav className="flex items-center gap-6">
+          <nav className="flex items-center gap-3">
             <Link
               to="/"
               className={`text-lg font-medium ${
                 isActive("/")
-                  ? "bg-violet-200 text-white px-5 py-1 rounded-md text-sm duration-150"
-                  : ""
+                  ? "bg-indigo-500 text-white px-5 py-1 rounded text-sm duration-150"
+                  : "bg-violet-200 text-white px-5 py-1 rounded text-sm"
               }`}
             >
               Version 1.1
@@ -144,8 +144,8 @@ const Navbar = () => {
               to="/v2"
               className={`text-lg font-medium ${
                 isActive("/v2")
-                  ? "bg-violet-200 text-white px-5 py-1 rounded-md text-sm duration-150"
-                  : ""
+                  ? "bg-indigo-500 text-white px-5 py-1 rounded text-sm duration-150"
+                  : "bg-violet-200 text-white px-5 py-1 rounded text-sm"
               }`}
             >
               Version 2.2

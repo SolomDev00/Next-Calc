@@ -17,7 +17,7 @@ const CalcGraph: React.FC = () => {
   const [graphs, setGraphs] = useState<{ func: string; color: string }[]>([]);
   const [graphFunc, setGraphFunc] = useState("");
   const [graphColor, setGraphColor] = useState("#ff0000");
-  const [gridSize, setGridSize] = useState(30);
+  const [gridSize, setGridSize] = useState(20);
   const canvasRef = useRef<HTMLCanvasElement | null>(null);
 
   const drawGraph = () => {
@@ -122,7 +122,7 @@ const CalcGraph: React.FC = () => {
   };
 
   const handleDecreaseGrid = () => {
-    setGridSize((prev) => Math.max(prev - 5, 30));
+    setGridSize((prev) => Math.max(prev - 5, 20));
   };
 
   useEffect(() => {
