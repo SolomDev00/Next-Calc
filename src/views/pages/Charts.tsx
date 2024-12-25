@@ -14,7 +14,7 @@ import toast from "react-hot-toast";
 import WaveChartComponent from "../../components/dashboard-charts/WaveChart";
 import { saveChart } from "../../database";
 import { Link } from "react-router-dom";
-import { v4 as uuidv4 } from "uuid"; 
+import { v4 as uuidv4 } from "uuid";
 
 export default function ChartsPreview() {
   const user = useUser();
@@ -41,11 +41,13 @@ export default function ChartsPreview() {
     const updatedInputs = [...dataInputs];
 
     if (field === "result") {
-      if (!/^\d*$/.test(value)) {
-        toast.error("Value must contain numbers only.");
+      if (!/^\d*\.?\d*$/.test(value)) {
+        toast.error(
+          "Value must contain valid numeric values (integers or decimals)."
+        );
         return;
       }
-      updatedInputs[index].result = Number(value);
+      updatedInputs[index].result = value;
     } else if (field === "key") {
       updatedInputs[index].key = value;
     }
@@ -117,7 +119,11 @@ export default function ChartsPreview() {
       return;
     }
 
-    if (!["bar", "line", "pie", "rader", "celsius", "wave"].includes(selectedChart)) {
+    if (
+      !["bar", "line", "pie", "rader", "celsius", "wave"].includes(
+        selectedChart
+      )
+    ) {
       toast.error("Invalid chart type.");
       return;
     }
@@ -141,16 +147,18 @@ export default function ChartsPreview() {
   return (
     <div>
       <div className="flex items-center justify-between gap-2 mb-5">
-        <div className="flex items-center gap-2">
-          <h3 className="text-2xl text-white">
-            Welcome,{" "}
-            <span className="font-medium text-primary">
-              {user.user?.username}
-            </span>
-          </h3>
-          <img className="w-6 h-6" src={IosHi} alt="Ios Hello" />
-        </div>
-        <div className="flex items-center gap-3">
+        {user.user ? (
+          <div className="flex items-center gap-2">
+            <h3 className="flex items-center gap-2 text-2xl text-white">
+              Welcome,{" "}
+              <span className="font-medium text-primary">
+                {user.user?.username}
+              </span>
+            </h3>
+            <img className="w-6 h-6" src={IosHi} alt="Ios Hello" />
+          </div>
+        ) : null}
+        <div className="w-full flex items-center justify-end gap-3">
           <button
             className="bg-transparent border border-primary flex items-center gap-2 text-white px-6 py-2 rounded-md hover:bg-primary duration-150 ease-out"
             onClick={handleReset}
@@ -245,14 +253,14 @@ export default function ChartsPreview() {
               <WaveChartComponent data={dataInputs} />
             )}
           </div>
-                  {dataInputs.length >= 2 && ( 
-          <button
-                      className={`bg-transparent border border-primary flex items-center gap-2 text-white px-6 py-2 rounded-md hover:bg-primary duration-150 ease-out`}
-            onClick={handleSaveChart}
-          >
-            Save Chart <SoAddNote className="w-5 h-5" />
-          </button>
-                  )}
+          {dataInputs.length >= 2 && (
+            <button
+              className={`bg-transparent border border-primary flex items-center gap-2 text-white px-6 py-2 rounded-md hover:bg-primary duration-150 ease-out`}
+              onClick={handleSaveChart}
+            >
+              Save Chart <SoAddNote className="w-5 h-5" />
+            </button>
+          )}
         </div>
       )}
     </div>

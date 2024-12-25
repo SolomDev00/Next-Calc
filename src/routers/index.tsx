@@ -13,7 +13,7 @@ import SignInPage from "../views/auth/Login";
 import SignUpPage from "../views/auth/Register";
 import RecentCharts from "../views/pages/RecentCharts";
 import LinearGraph from "../views/pages/LinearGraph";
-import MaxGraph from "../views/pages/MaxGraph";
+import MaxGraph from "../views/pages/CalcGraph";
 import MatrixGraph from "../views/pages/MatrixGraph";
 import TreeGraph from "../views/pages/TreeGraph";
 import CaesarCipher from "../views/pages/CaesarCipher";
