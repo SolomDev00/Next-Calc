@@ -13,10 +13,10 @@ import SignInPage from "../views/auth/Login";
 import SignUpPage from "../views/auth/Register";
 import RecentCharts from "../views/pages/RecentCharts";
 import LinearGraph from "../views/pages/LinearGraph";
-import MaxGraph from "../views/pages/CalcGraph";
 import MatrixGraph from "../views/pages/MatrixGraph";
 import TreeGraph from "../views/pages/TreeGraph";
 import CaesarCipher from "../views/pages/CaesarCipher";
+import CalcGraph from "../views/pages/CalcGraph";
 
 const routers = createHashRouter(
   createRoutesFromElements(
@@ -24,7 +24,7 @@ const routers = createHashRouter(
       {/* Root Layout */}
       <Route path="/" element={<RootLayout />} errorElement={<ErrorHandler />}>
         <Route index element={<HomePage />} />
-        <Route path="/max" element={<MaxGraph />} />
+        <Route path="/v2" element={<CalcGraph />} />
         <Route path="/tree" element={<TreeGraph />} />
         <Route path="/cipher" element={<CaesarCipher />} />
         <Route path="/matrix" element={<MatrixGraph />} />

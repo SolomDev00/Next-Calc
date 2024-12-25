@@ -1,10 +1,15 @@
 import "./Navbar.style.css";
 import { Link, useLocation } from "react-router-dom";
-import LogoImg from '../../assets/logo.png'
+import LogoImg from "../../assets/logo.png";
 import { useEffect, useState } from "react";
 import { SoArrowDown, SoSquareArrowUpRight, SoXmarkCircle } from "solom-icon";
 import { Link as ScrollLink } from "react-scroll";
-import { SignedIn, SignedOut, SignInButton, UserButton } from "@clerk/clerk-react";
+import {
+  SignedIn,
+  SignedOut,
+  SignInButton,
+  UserButton,
+} from "@clerk/clerk-react";
 import Button from "../ui/Button";
 
 const Navbar = () => {
@@ -71,16 +76,16 @@ const Navbar = () => {
     const handleClickOutside = (event: MouseEvent) => {
       const target = event.target as HTMLElement;
 
-      if (showMenu && target && !target.closest('.mobile-menu')) {
+      if (showMenu && target && !target.closest(".mobile-menu")) {
         setShowMenu(false);
         document.body.classList.remove("menu-open");
         document.body.classList.add("menu-closed");
       }
     };
 
-    document.addEventListener('mousedown', handleClickOutside);
+    document.addEventListener("mousedown", handleClickOutside);
     return () => {
-      document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener("mousedown", handleClickOutside);
     };
   }, [showMenu]);
 
@@ -91,11 +96,15 @@ const Navbar = () => {
     }
   }, [location]);
 
+  const isActive = (path: string) => location.pathname === path;
+
   return (
     <header
-      className={`header ${scrolling ? "bg-transparent" : "bg-primary"
-        } duration-200 ${scrolling ? "bg-transparent" : "bg-primary"} ${showMenu ? "menu-open" : ""
-        }`}
+      className={`header ${
+        scrolling ? "bg-transparent" : "bg-primary"
+      } duration-200 ${scrolling ? "bg-transparent" : "bg-primary"} ${
+        showMenu ? "menu-open" : ""
+      }`}
       style={{
         display: `${scrolling === true ? "" : "none"}`,
         background: `${window.scrollY < 10 ? "transparent" : ""}`,
@@ -108,44 +117,53 @@ const Navbar = () => {
       }}
     >
       <div
-        className={`menu__wrapper duration-200 ${scrolling ? "bg-transparent" : "text-primary"
-          }`}
+        className={`menu__wrapper duration-200 ${
+          scrolling ? "bg-transparent" : "text-primary"
+        }`}
         style={{
           background: `${window.scrollY < 10 ? "transparent" : ""}`,
           animation: `${window.scrollY > 50 ? "fadeUpNav 0.4s ease-out" : ""}`,
         }}
       >
-        <div className="navbar">
-          <Link
-            to="/"
-            title={"NextCalc"}
-            aria-label="home"
-            className="logo"
-          >
-            <img
-              className={`ml-0`}
-              src={LogoImg}
-              alt="logo"
-            />
+        <div className="w-full navbar flex flex-row items-center justify-between">
+          <Link to="/" title={"NextCalc"} aria-label="home" className="logo">
+            <img className={`ml-0`} src={LogoImg} alt="logo" />
           </Link>
+          <nav className="flex items-center gap-6">
+            <Link
+              to="/"
+              className={`text-lg font-medium ${
+                isActive("/")
+                  ? "bg-violet-200 text-white px-5 py-1 rounded-md text-sm duration-150"
+                  : ""
+              }`}
+            >
+              Version 1.1
+            </Link>
+            <Link
+              to="/v2"
+              className={`text-lg font-medium ${
+                isActive("/v2")
+                  ? "bg-violet-200 text-white px-5 py-1 rounded-md text-sm duration-150"
+                  : ""
+              }`}
+            >
+              Version 2.2
+            </Link>
+          </nav>
           <div>
-              <SignedOut>
+            <SignedOut>
               <SignInButton>
-                <Button className="py-2 px-8 flex items-center gap-2">Login <SoSquareArrowUpRight className="w-5 h-5"/></Button>
+                <Button className="py-2 px-8 flex items-center gap-2">
+                  Login <SoSquareArrowUpRight className="w-5 h-5" />
+                </Button>
               </SignInButton>
-              </SignedOut>
+            </SignedOut>
             <SignedIn>
-              <UserButton
-                // appearance={{
-                //   variables: {
-                //     colorBackground: "#000"
-                //   }
-                // }}
-                userProfileMode="modal"
-              />
+              <UserButton userProfileMode="modal" />
             </SignedIn>
-            </div>
-        </div>      
+          </div>
+        </div>
         <button
           aria-label="Toggle menu"
           className="burger-menu z-20"
@@ -154,7 +172,9 @@ const Navbar = () => {
         >
           {showMenu ? (
             <SoXmarkCircle className={"text-red-600 w-6 h-6"} />
-          ) : <SoArrowDown className={"text-white w-5 h-5"} />}
+          ) : (
+            <SoArrowDown className={"text-white w-5 h-5"} />
+          )}
         </button>
         {showMenu && (
           <div className="mobile-menu-overlay">
@@ -162,37 +182,62 @@ const Navbar = () => {
               <nav>
                 <ul className="text-center">
                   <li className="text-primary text-xl hover:text-secondary duration-150">
-                    <ScrollLink to="landing" smooth={true} duration={500} onClick={handleNavLinkClick}>
+                    <ScrollLink
+                      to="landing"
+                      smooth={true}
+                      duration={500}
+                      onClick={handleNavLinkClick}
+                    >
                       Main
                     </ScrollLink>
                   </li>
                   <li className="text-primary text-xl hover:text-secondary duration-150">
-                    <ScrollLink to="about" smooth={true} duration={500} onClick={handleNavLinkClick}>
+                    <ScrollLink
+                      to="about"
+                      smooth={true}
+                      duration={500}
+                      onClick={handleNavLinkClick}
+                    >
                       About
                     </ScrollLink>
                   </li>
                   <li className="text-primary text-xl hover:text-secondary duration-150">
-                    <ScrollLink to="services" smooth={true} duration={500} onClick={handleNavLinkClick}>
+                    <ScrollLink
+                      to="services"
+                      smooth={true}
+                      duration={500}
+                      onClick={handleNavLinkClick}
+                    >
                       Services
                     </ScrollLink>
                   </li>
                   <li className="text-primary text-xl hover:text-secondary duration-150">
-                    <ScrollLink to="pricing" smooth={true} duration={500} onClick={handleNavLinkClick}>
+                    <ScrollLink
+                      to="pricing"
+                      smooth={true}
+                      duration={500}
+                      onClick={handleNavLinkClick}
+                    >
                       Pricing
                     </ScrollLink>
                   </li>
                   <li className="text-primary text-xl hover:text-secondary duration-150">
-                    <ScrollLink to="help" smooth={true} duration={500} onClick={handleNavLinkClick}>
+                    <ScrollLink
+                      to="help"
+                      smooth={true}
+                      duration={500}
+                      onClick={handleNavLinkClick}
+                    >
                       Help
                     </ScrollLink>
                   </li>
-                </ul>              
+                </ul>
               </nav>
             </div>
           </div>
         )}
       </div>
-    </header >
+    </header>
   );
 };
 
