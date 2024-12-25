@@ -38,10 +38,15 @@ const renderCustomizedLabel = ({
 };
 
 const CelsiusChartComponent = ({ data }: { data: DataPoint[] }) => {
+  const processedData = data.map((item) => ({
+    ...item,
+    result: Number(item.result),
+  }));
+
   return (
     <PieChart width={400} height={300}>
       <Pie
-        data={data}
+        data={processedData}
         cx="50%"
         cy="50%"
         labelLine={false}
@@ -51,7 +56,12 @@ const CelsiusChartComponent = ({ data }: { data: DataPoint[] }) => {
         dataKey="result"
       >
         {data.map((_entry, index) => (
-            <Cell key={`cell-${index}`} fill={["#8884d8", "#82ca9d", "#ECC94B", "#E53E3E", "#3182CE"][index % 5]} />
+          <Cell
+            key={`cell-${index}`}
+            fill={
+              ["#8884d8", "#82ca9d", "#ECC94B", "#E53E3E", "#3182CE"][index % 5]
+            }
+          />
         ))}
       </Pie>
     </PieChart>
